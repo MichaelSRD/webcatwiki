@@ -1,0 +1,30 @@
+@import '../../assets/style/media-queries.scss';
+footer{
+    margin-top: 6.66rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5rem;
+    background: #000;
+    height: 6.13056rem;
+    border-radius: 40px 40px 0 0;
+    color: #fff;
+    @include small{
+        margin-top: 2.66rem;
+        padding: 10px 0.75rem;
+        display: block;
+        height: 7.13056rem;
+    }
+    .logo{
+        img{
+            filter: brightness(0) invert(1);
+            @include small{
+                width: 120px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+    .copy{
+        font-size: 0.75rem;
+    }
+}

@@ -1,0 +1,8 @@
+@import '../assets/style/media-queries.scss';
+.container{
+   max-width: 80rem;
+   margin: auto;
+   @include small {
+       padding: 0 1rem;
+    }
+}

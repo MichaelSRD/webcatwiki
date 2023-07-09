@@ -1,0 +1,10 @@
+<h2>Top 10 most searched breeds</h2>
+<div class="top_breeds">
+    <div class="info" *ngFor="let cat of top; let i=index">
+        <img [src]="cat.img" alt="imagen de gatos">
+        <div class="texto">
+            <h3>{{i+1}}. {{cat.raza}}</h3>
+            <p>{{cat.desc}}</p>
+        </div>
+    </div>
+</div>

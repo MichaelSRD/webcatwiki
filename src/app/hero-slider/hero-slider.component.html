@@ -1,0 +1,73 @@
+<div class="hero-image">
+    <div class="logo">
+      <img src="../../assets/images/CatwikiLogo.svg" alt="Logo">
+    </div>
+    <div class="texto">
+        <p>Get to know more about your cat breed</p>
+    </div>
+    <div class="search-bar">
+      <input [(ngModel)]="searchTerm" (input)="search()" type="text" placeholder="Enter your breed...">
+
+      <img src="../../assets/images/search-outline.svg" alt="lupa de busqueda">
+       <div class="fondo" [ngStyle]="{'display': searchResults.length > 0 ? 'grid' : 'none'}">
+        <div class="modal_search"  >
+            <a *ngFor="let raza of searchResults" routerLink="/detalles/{{raza.id}}" >{{raza.name}}</a>
+        </div>
+      </div>
+    </div>
+    <div (click)="open_modal()" class="search-bar mobile">
+      <input type="text" placeholder="Search">
+      <img src="../../assets/images/search-outline.svg" alt="lupa de busqueda">
+    </div>
+    <div class="modal" *ngIf="modalopen">
+        <div class="close" (click)="close_modal()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 13" fill="none">
+                <path d="M13.3002 0.480619C12.9102 0.11377 12.2802 0.11377 11.8902 0.480619L7.00021 5.07094L2.11021 0.471212C1.72022 0.104363 1.09021 0.104363 0.700215 0.471212C0.310215 0.838062 0.310215 1.43067 0.700215 1.79751L5.59021 6.39724L0.700215 10.997C0.310215 11.3638 0.310215 11.9564 0.700215 12.3233C1.09021 12.6901 1.72022 12.6901 2.11021 12.3233L7.00021 7.72354L11.8902 12.3233C12.2802 12.6901 12.9102 12.6901 13.3002 12.3233C13.6902 11.9564 13.6902 11.3638 13.3002 10.997L8.41021 6.39724L13.3002 1.79751C13.6802 1.44007 13.6802 0.838062 13.3002 0.480619Z" fill="#291507"/>
+              </svg>
+        </div>
+        <div class="search-bar mobile_search">
+            <input [(ngModel)]="searchTerm" (input)="search()" type="text" placeholder="Enter your breed...">
+      
+            <img src="../../assets/images/search-outline.svg" alt="lupa de busqueda">
+             <div class="fondo" [ngStyle]="{'display': searchResults.length > 0 ? 'grid' : 'none'}">
+              <div class="modal_search mobile_result"  >
+                  <a *ngFor="let raza of searchResults" routerLink="/detalles/{{raza.id}}" >{{raza.name}}</a>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
+<main>
+    <article class="article1">
+        <p class="intro">Most Searched Breeds</p>
+        <div class="titulos">
+            <h2>66+ Breeds For you to discover</h2>
+            <p routerLink="top" >SEE MORE <img src="../../assets/images/arrow-forward-outline.svg" alt="fecha hacia la derecha"> </p>
+        </div>
+        <div class="imagenes">
+             <div *ngFor="let cats of top.slice(0, 4); let i=index" class="cards">
+                <ng-container *ngIf="cats.imagen && cats.imagen.image_urls && cats.imagen.image_urls.length > 0">
+                    <img routerLink="detalles/{{cats.nombre_id}}" (click)="updateSharedData(cats)" [src]="cats.imagen.image_urls[0]" alt="Imagen de {{ cats.raza }}">
+                  </ng-container>
+                <p routerLink="detalles/{{cats.nombre_id}}" (click)="updateSharedData(cats)" >{{cats.raza}}</p>
+             </div>
+        </div>
+
+    </article>
+    <article class="articulo2">
+        <section class="section1">
+            <h2>Why should you have a cat?</h2>
+            <p>Having a cat around can actually trigger the release of calming chemicals in your body, which lowers your stress and anxiety levels.</p>
+            <div class="mas">
+                <a href="https://www.sabermas.umich.mx/secciones/articulos/572-la-vida-secreta-de-nuestros-gatos.html" target="_blank" >READ MORE  <img src="../../assets/images/arrow-forward-outline.svg" alt="Right arrow"></a>
+            </div>
+        </section>
+        <section class="section2">
+            <div class="images">
+                <img src="../../assets/images/image 2.png" alt="" class="image1" >
+                <img src="../../assets/images/image 1.png" alt="" class="image2" >
+                <img src="../../assets/images/image 3.png" alt="" class="image3" >
+            </div>
+        </section>
+    </article>
+</main>
