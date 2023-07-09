@@ -13,25 +13,25 @@ export class CatwikiService {
 
  
   getRazas() {
-    return this.http.get('http://127.0.0.1:9000/raza');
+    return this.http.get('https://catapi-h015.onrender.com/raza');
   }
   get_Detaiil_Razas(name: string) {
    
-    return this.http.get('http://127.0.0.1:9000/search/'+name);
+    return this.http.get('https://catapi-h015.onrender.com/search/'+name);
   }
   get_Detaiil(name: string) {
    
-    return this.http.get('http://127.0.0.1:9000/desctop/'+name);
+    return this.http.get('https://catapi-h015.onrender.com/desctop/'+name);
   }
   get_image_Razas(id: string) {
 
-    return this.http.get('http://127.0.0.1:9000/images/'+id);
+    return this.http.get('https://catapi-h015.onrender.com/images/'+id);
   }
   popular_Razas() {
-    return this.http.get('http://127.0.0.1:9000/breed/topsearches');
+    return this.http.get('https://catapi-h015.onrender.com/breed/topsearches');
   }
   image_Razas(id: string) {
-    const url = this.http.get('http://127.0.0.1:9000/image/'+ id)
+    const url = this.http.get('https://catapi-h015.onrender.com/image/'+ id)
     return url;
 
   }
